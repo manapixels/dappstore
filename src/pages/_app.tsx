@@ -135,7 +135,8 @@ export default function App({ Component, pageProps }: AppProps) {
                      colSpan={3}
                      px={{ base: 4, md: 16 }}
                      py={{ base: 4, md: 8 }}
-                     h="100vh"
+                     h={{ base: 'auto', md: "100vh" }}
+                     mt={{ base: 24, md: 0 }}
                      overflow="auto"
                   >
                      <Component {...pageProps} />

@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 export default function AppsByCategory() {
 
     const router = useRouter()
-    const category = router.query.category ? String(router.query.category) : ""
+    const category: string = typeof router.query.category === 'string' ? String(router.query.category) : ""
 
    return (
       <>

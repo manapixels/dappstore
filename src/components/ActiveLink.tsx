@@ -49,6 +49,7 @@ const ActiveLink = ({
    ])
 
    return (
+      //@ts-ignore
       <Link className={computedClassName} {...props}>
          {children}
       </Link>

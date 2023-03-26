@@ -16,6 +16,7 @@ import {
    Heading,
 } from '@chakra-ui/react'
 import Sidebar from '@/components/Sidebar'
+import { ModalProvider } from '@/contexts/modalContext'
 
 const theme = extendTheme(
    {
@@ -102,34 +103,42 @@ export default function App({ Component, pageProps }: AppProps) {
    return (
       <ChakraProvider theme={theme}>
          <QueryClientProvider client={queryClient}>
-            <Head>
-               <title>DAppStore</title>
-               <meta name="description" content="" />
-               <meta
-                  name="viewport"
-                  content="width=device-width, initial-scale=1"
-               />
-               <link rel="icon" href="/favicon.ico" />
-            </Head>
-            <Grid
-               gridTemplateColumns="repeat(4, 1fr)"
-               gap={4}
-               style={inter.style}
-            >
-               <GridItem
-                  colSpan={1}
-                  px={16}
-                  py={12}
-                  w={['xl', '100%']}
-                  background="white"
-                  h="100vh"
+            <ModalProvider>
+               <Head>
+                  <title>DAppStore</title>
+                  <meta name="description" content="" />
+                  <meta
+                     name="viewport"
+                     content="width=device-width, initial-scale=1"
+                  />
+                  <link rel="icon" href="/favicon.ico" />
+               </Head>
+               <Grid
+                  gridTemplateColumns="repeat(4, 1fr)"
+                  gap={4}
+                  style={inter.style}
                >
-                  <Sidebar />
-               </GridItem>
-               <GridItem colSpan={3} px={16} py={8} h="100vh" overflow="auto">
-                  <Component {...pageProps} />
-               </GridItem>
-            </Grid>
+                  <GridItem
+                     colSpan={1}
+                     px={16}
+                     py={12}
+                     w={['xl', '100%']}
+                     background="white"
+                     h="100vh"
+                  >
+                     <Sidebar />
+                  </GridItem>
+                  <GridItem
+                     colSpan={3}
+                     px={16}
+                     py={8}
+                     h="100vh"
+                     overflow="auto"
+                  >
+                     <Component {...pageProps} />
+                  </GridItem>
+               </Grid>
+            </ModalProvider>
          </QueryClientProvider>
       </ChakraProvider>
    )

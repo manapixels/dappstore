@@ -3,9 +3,19 @@ import { Badge, Box, Button, Flex, HStack, Image, Link, Tag, Tooltip } from '@ch
 import { Project } from '@/types/Project'
 import { ExternalLink, Star } from 'react-feather'
 import { chains } from '../constants/chains'
+import { ModalContext } from '@/contexts/modalContext'
 
-const ProjectListItem = ({ project }: { project: Project }) => (
-   <Flex pos="relative" role="group">
+
+const ProjectListItem = ({ project }: { project: Project }) => {
+
+   //@ts-ignore
+   let { onOpen, setActiveProject } = React.useContext(ModalContext)
+   
+   return (
+   <Flex pos="relative" role="group" onClick={() => {
+      setActiveProject(project)
+      onOpen()
+   }}>
       <Button
          as={Flex}
          height="auto"
@@ -101,5 +111,6 @@ const ProjectListItem = ({ project }: { project: Project }) => (
       </Tooltip>
    </Flex>
 )
+         }
 
 export default ProjectListItem

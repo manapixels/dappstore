@@ -5,7 +5,7 @@ const nextConfig = {
     return [
       {
         source: '/',
-        destination: '/finance',
+        destination: '/category/finance',
         permanent: true
       }
     ]

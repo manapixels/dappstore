@@ -1,7 +1,17 @@
+import React from 'react'
+import { ModalContext } from '@/contexts/modalContext'
 import { Project } from '@/types/Project'
 import { Box, Button, Flex, Image } from '@chakra-ui/react'
 
-const SearchResultListItem = ({ project }: { project: Project }) => {
+const SearchResultListItem = ({
+   project,
+   onClose,
+}: {
+   project: Project
+   onClose: () => void
+}) => {
+   //@ts-ignore
+   let { onOpen, setActiveProject } = React.useContext(ModalContext)
    return (
       <Flex
          as={Button}
@@ -12,6 +22,11 @@ const SearchResultListItem = ({ project }: { project: Project }) => {
          variant="white"
          border="none"
          justifyContent="flex-start"
+         onClick={() => {
+            setActiveProject(project)
+            onOpen()
+            onClose()
+         }}
       >
          {project?.images?.logo ? (
             <Box>

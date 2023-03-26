@@ -53,7 +53,7 @@ const ProjectsInfiniteScroll = ({ category }: { category: string }) => {
       }
    }, [fetchNextPage, hasNextPage, handleObserver])
 
-    console.log(data)
+   //  console.log(data)
 
    return (
       <>

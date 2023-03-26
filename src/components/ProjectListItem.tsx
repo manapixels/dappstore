@@ -72,10 +72,10 @@ const ProjectListItem = ({ project }: { project: Project }) => {
          </Box>
       </Button>
       <HStack pos="absolute" bottom="-1" right="2" zIndex="2" spacing={-1}>
-         {project?.chains?.map((chain) => (
-            <Tooltip key={chain} label={chains[chain]?.name}>
+         {project?.chains?.map((chainId) => (
+            <Tooltip key={chainId} label={chains[chainId]?.name}>
                <Image
-                  src={chains[chain]?.logo}
+                  src={chains[chainId]?.logo}
                   alt=""
                   width="4"
                   height="4"

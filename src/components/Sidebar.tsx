@@ -93,7 +93,7 @@ const Sidebar = () => {
                </Flex>
                <Flex
                   as={ActiveLink}
-                  href="/"
+                  href="/apps"
                   w="100%"
                   activeClassName="active"
                   p={3}

@@ -16,7 +16,6 @@ import useDebounce from '@/hooks/useDebounce'
 import SearchResultListItem from './SearchResultListItem'
 import { Project } from '@/types/Project'
 
-
 const SearchProjects = () => {
    const [query, setQuery] = useState('')
    const [isModalOpen, setIsModalOpen] = useState(false)
@@ -34,7 +33,7 @@ const SearchProjects = () => {
       queryFn: getDappsByKeyword,
    })
 
-   console.log(data, error, isFetching, status, query, debouncedQuery)
+   //    console.log(data, error, isFetching, status, query, debouncedQuery)
    return (
       <Box w="100%">
          <InputGroup onClick={onOpen}>
@@ -87,6 +86,7 @@ const SearchProjects = () => {
                      <SearchResultListItem
                         key={project.dappId}
                         project={project}
+                        onClose={onClose}
                      />
                   ))}
                </Stack>

@@ -4,6 +4,7 @@ import { useInfiniteQuery } from '@tanstack/react-query'
 import { Project } from '@/types/Project'
 import ProjectListItem from '@/components/ProjectListItem'
 import { categories } from '../constants/categories'
+import ProjectListSkeleton from './ProjectListSkeleton'
 
 const LIMIT = 15
 
@@ -21,6 +22,7 @@ const ProjectsInfiniteScroll = () => {
    const {
       data,
       error,
+      isFetching,
       fetchNextPage,
       hasNextPage,
       isFetchingNextPage,
@@ -75,6 +77,7 @@ const ProjectsInfiniteScroll = () => {
                </Button>
             ))}
          </Flex>
+         {isFetching && status !== 'success' && <ProjectListSkeleton />}
          <Flex wrap="wrap" gap={3}>
             {data?.pages?.map((page, i) =>
                page?.response?.map((project: Project, i: number) => (
@@ -87,9 +90,9 @@ const ProjectsInfiniteScroll = () => {
          </div>
          {error && <Box>An error has occurred</Box>}
          {/* {console.log(data?.pages?.length, data)} */}
-         {status === 'success' && !isFetchingNextPage && data?.pageParams[0] === undefined && (
-            <Box>No app found</Box>
-         )}
+         {status === 'success' &&
+            !isFetchingNextPage &&
+            data?.pageParams[0] === undefined && <Box>No app found</Box>}
       </>
    )
 }

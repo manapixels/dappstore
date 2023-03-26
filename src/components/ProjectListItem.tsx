@@ -37,13 +37,13 @@ const ProjectListItem = ({ project }: { project: Project }) => (
             <Box background="lightgray.300" width="50" height="50"></Box>
          )}
          <Box px={4} overflow="hidden" whiteSpace="nowrap">
+            <Box fontWeight="bold" fontSize="md">
+               {project.name}
+            </Box>
             <Box>
-               <Badge fontSize="66%" color="darkgray.100">
+               <Badge fontSize="66%" color="darkgray.100" mb={1}>
                   {project.category}
                </Badge>
-            </Box>
-            <Box fontWeight="bold" fontSize="md" pb={1}>
-               {project.name}
             </Box>
             <Box fontSize="xs" color="lightgray.700">
                {project.metrics?.rating ? (

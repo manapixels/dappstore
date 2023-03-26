@@ -8,7 +8,7 @@ import {
    useDisclosure,
    Box,
 } from '@chakra-ui/react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Search } from 'react-feather'
 import { useQuery } from '@tanstack/react-query'
 
@@ -17,19 +17,15 @@ const SearchProjects = () => {
    const [isModalOpen, setIsModalOpen] = useState(false)
    const { isOpen, onOpen, onClose } = useDisclosure()
 
-   const getDappsByCategory = async () => {
+   const getDappsByKeyword = async () => {
       return await fetch(
-         `https://api-a.meroku.store/dapp?page=1&limit=30&categories=${selectedTab}`
+         `https://api-a.meroku.store/dapp?page=1&limit=10&keyword=${query}`
       ).then((res) => res.json())
    }
 
-   useEffect(() => {
-      getDappsByCategory()
-   }, [selectedTab])
-
    const { data, error, isFetching, status } = useQuery({
       queryKey: ['dapps', { query }],
-      queryFn: getDappsByCategory,
+      queryFn: getDappsByKeyword,
    })
 
    return (

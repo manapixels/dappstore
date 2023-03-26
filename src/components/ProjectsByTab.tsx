@@ -3,7 +3,7 @@ import { Box, Button, Flex } from '@chakra-ui/react'
 import { useInfiniteQuery } from '@tanstack/react-query'
 import { Project } from '@/types/Project'
 import ProjectListItem from '@/components/ProjectListItem'
-import { categories } from '../categories'
+import { categories } from '../constants/categories'
 
 const LIMIT = 15
 
@@ -86,7 +86,7 @@ const ProjectsInfiniteScroll = () => {
             {isFetchingNextPage && hasNextPage ? 'Loading...' : ''}
          </div>
          {error && <Box>An error has occurred</Box>}
-         {console.log(data?.pages?.length, data)}
+         {/* {console.log(data?.pages?.length, data)} */}
          {status === 'success' && !isFetchingNextPage && data?.pageParams[0] === undefined && (
             <Box>No app found</Box>
          )}

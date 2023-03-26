@@ -1,6 +1,4 @@
-type Chains = {
-   [key: number]: { name: string; logo: string }
-}
+import { Chains } from "../types/Chains";
 
 export const chains : Chains = {
    1: {

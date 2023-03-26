@@ -2,7 +2,7 @@ import React from 'react'
 import { Badge, Box, Button, Flex, HStack, Image, Link, Tag, Tooltip } from '@chakra-ui/react'
 import { Project } from '@/types/Project'
 import { ExternalLink, Star } from 'react-feather'
-import { chains } from '../chains'
+import { chains } from '../constants/chains'
 
 const ProjectListItem = ({ project }: { project: Project }) => (
    <Flex pos="relative" role="group">

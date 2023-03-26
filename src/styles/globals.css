@@ -95,6 +95,42 @@ a.active svg {
   stroke: var(--chakra-colors-lightgray-400);
 }
 
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--chakra-colors-lightgray-400) #FFF;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--chakra-colors-lightgray-300);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--chakra-colors-lightgray-400);
+  border-radius: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--chakra-colors-lightgray-600);
+  border-radius: 6px;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

@@ -8,6 +8,8 @@ import {
    useDisclosure,
    Box,
    Stack,
+   Show,
+   Button,
 } from '@chakra-ui/react'
 import { useState } from 'react'
 import { Search } from 'react-feather'
@@ -36,24 +38,32 @@ const SearchProjects = () => {
    //    console.log(data, error, isFetching, status, query, debouncedQuery)
    return (
       <Box w="100%">
-         <InputGroup onClick={onOpen}>
-            <InputLeftElement
-               pointerEvents="none"
-               top="50%"
-               transform="translateY(-50%)"
-               width={12}
-            >
-               <Search color="var(--chakra-colors-lightgray-500)" size={20} />
-            </InputLeftElement>
-            <Input
-               type="text"
-               placeholder="Search projects"
-               background="white"
-               size="lg"
-               paddingLeft={12}
-               fontSize="md"
-            />
-         </InputGroup>
+         <Show above="md">
+            <InputGroup onClick={onOpen}>
+               <InputLeftElement
+                  pointerEvents="none"
+                  top="50%"
+                  transform="translateY(-50%)"
+                  width={12}
+               >
+                  <Search
+                     color="var(--chakra-colors-lightgray-500)"
+                     size={20}
+                  />
+               </InputLeftElement>
+               <Input
+                  type="text"
+                  placeholder="Search projects"
+                  background="white"
+                  size="lg"
+                  paddingLeft={12}
+                  fontSize="md"
+               />
+            </InputGroup>
+         </Show>
+         <Show below="md">
+            <Button variant="black" onClick={onOpen} width={14} height={14} pos="fixed" bottom={4} right={4} zIndex="popover"><Search /></Button>
+         </Show>
 
          <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />

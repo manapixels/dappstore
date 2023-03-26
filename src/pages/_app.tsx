@@ -114,24 +114,27 @@ export default function App({ Component, pageProps }: AppProps) {
                   <link rel="icon" href="/favicon.ico" />
                </Head>
                <Grid
-                  gridTemplateColumns="repeat(4, 1fr)"
-                  gap={4}
+                  gridTemplateColumns={{
+                     base: 'repeat(1, 1fr)',
+                     md: 'repeat(4, 1fr)',
+                  }}
+                  gap={{ base: 0, md: 4 }}
                   style={inter.style}
                >
                   <GridItem
                      colSpan={1}
-                     px={16}
-                     py={12}
-                     w={['xl', '100%']}
+                     px={{ base: 4, md: 8 }}
+                     py={{ base: 4, md: 8 }}
+                     w={{ base: '100%', md: '350px' }}
                      background="white"
-                     h="100vh"
+                     h={{ base: 'auto', md: '100vh' }}
                   >
                      <Sidebar />
                   </GridItem>
                   <GridItem
                      colSpan={3}
-                     px={16}
-                     py={8}
+                     px={{ base: 4, md: 16 }}
+                     py={{ base: 4, md: 8 }}
                      h="100vh"
                      overflow="auto"
                   >

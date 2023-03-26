@@ -1,6 +1,6 @@
 export const categories = [
-   'finance',
-   'games',
+   // 'finance',
+   // 'games',
    'education',
    'business',
    'developer tools',

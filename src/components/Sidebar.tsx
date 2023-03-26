@@ -1,10 +1,5 @@
-import {
-   Box,
-   Flex,
-   VStack,
-} from '@chakra-ui/react'
+import { Box, Flex, Stack, Image } from '@chakra-ui/react'
 import { chakraComponents, Select } from 'chakra-react-select'
-import Image from 'next/image'
 import Link from 'next/link'
 import { Grid as IconGrid, Film as IconFilm, DollarSign } from 'react-feather'
 
@@ -25,8 +20,8 @@ const chainOptions = chains && [
          <Image
             src={chains[chainId].logo}
             alt={chains[chainId].name}
-            width="20"
-            height="20"
+            width={8}
+            height={8}
          />
       ),
    })),
@@ -50,13 +45,34 @@ const customComponents = {
 
 const Sidebar = () => {
    return (
-      <Flex flexFlow="column" justifyContent="space-between" height="100%">
+      <Flex
+         flexFlow="column"
+         justifyContent="space-between"
+         height={{ base: 'auto', md: '100%' }}
+         width={{ base: '100%', md: 'auto' }}
+         pos={{ base: 'fixed', md: 'relative' }}
+         top={{ base: '0', md: 'initial' }}
+         left={{ base: '0', md: 'initial' }}
+         zIndex="docked"
+         background="white"
+         p={4}
+      >
          <Box>
-            <Box mb={5}>
-               <Image src="/images/logo.svg" alt="" width="200" height="55" />
+            <Box mb={{ base: 2, md: 5 }}>
+               <Image
+                  src="/images/logo.svg"
+                  alt=""
+                  width={{ base: '150px', md: '200px' }}
+                  height={{ base: '41.25px', md: '55px' }}
+               />
             </Box>
             <SearchProjects />
-            <VStack textAlign="left" mt={4}>
+            <Stack
+               textAlign="left"
+               mt={{ base: 0, md: 4 }}
+               mb={{ base: 2, md: 0 }}
+               direction={{ base: 'row', md: 'column' }}
+            >
                <Flex
                   as={ActiveLink}
                   href="/category/finance"
@@ -108,7 +124,7 @@ const Sidebar = () => {
                   />
                   Apps
                </Flex>
-            </VStack>
+            </Stack>
          </Box>
          <Box>
             <Select

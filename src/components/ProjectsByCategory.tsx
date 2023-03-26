@@ -57,8 +57,12 @@ const ProjectsInfiniteScroll = ({ category }: { category: string }) => {
 
    return (
       <>
-        {isFetching && status !== 'success' && <ProjectListSkeleton />}
-         <Flex wrap="wrap" gap={3}>
+         {isFetching && status !== 'success' && <ProjectListSkeleton />}
+         <Flex
+            wrap="wrap"
+            gap={3}
+            flexDirection={{ base: 'column', md: 'row' }}
+         >
             {data?.pages?.map((page, i) =>
                page?.response?.map((project: Project, i: number) => (
                   <ProjectListItem key={project.dappId} project={project} />

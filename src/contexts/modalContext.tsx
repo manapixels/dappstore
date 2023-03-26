@@ -41,8 +41,6 @@ const ModalProvider = ({ children }: Props) => {
    const { isOpen, onOpen, onClose } = useDisclosure()
    const [activeProject, setActiveProject] = useState<Project | undefined>()
 
-   console.log(activeProject)
-
    return (
       <ModalContext.Provider
          //@ts-ignore

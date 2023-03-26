@@ -60,7 +60,7 @@ const ProjectsInfiniteScroll = () => {
 
    return (
       <>
-         <Flex width="100%" overflowX="auto" mb={8}>
+         <Box width="100%" overflowX="auto" mb={8} whiteSpace="nowrap" className="hide-scrollbar">
             {categories.map((cat, i) => (
                <Button
                   key={`${cat}-${i}`}
@@ -76,9 +76,13 @@ const ProjectsInfiniteScroll = () => {
                   {cat}
                </Button>
             ))}
-         </Flex>
+         </Box>
          {isFetching && status !== 'success' && <ProjectListSkeleton />}
-         <Flex wrap="wrap" gap={3}>
+         <Flex
+            wrap="wrap"
+            gap={3}
+            flexDirection={{ base: 'column', md: 'row' }}
+         >
             {data?.pages?.map((page, i) =>
                page?.response?.map((project: Project, i: number) => (
                   <ProjectListItem key={project.dappId} project={project} />
